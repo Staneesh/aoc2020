@@ -15,12 +15,7 @@ for line in file:
     if line_len < 30:
         break
 
-    for i in range(n):
-        cdx = dx[i]
-        cdy = dy[i]
-        current_x = x[i]
-        current_y = y[i]
-
+    for (i, cdx, cdy, current_x, current_y) in zip(range(n), dx, dy, x, y):
         if line_counter % cdy == 0:
             if line[current_x] == '#':
                 trees[i] = trees[i] + 1
