@@ -25,8 +25,6 @@ for line in file:
             
         print(f"{line_counter}   [{cdx}, {cdy}]({current_x}, {current_y}): trees = {trees[i]}")
 
-
-
     line_counter = line_counter + 1
 
 for tree in trees:
