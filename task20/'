@@ -1,0 +1,35 @@
+file = open("data", "r")
+
+paragraphs = file.read().split("\n\n")
+data = []
+for p in paragraphs:
+    parts = p.split(":")
+    index = int(parts[0][5:])
+    image = parts[1].split("\n")
+    while "" in image:
+        image.remove("")
+
+    for i in range(len(image)):
+        image[i] = list(image[i])
+
+    data.append([index, image])
+
+def rotation_right(image):
+    result = image
+
+    for (y, line) in enumerate(image):
+        for (x, char) in enumerate(line):
+            result[x][len(image) - x - 1] = image[y][x]
+
+    return result
+
+def pretty_print_image(image):
+    for line in image:
+        line = "".join(line)
+        print(line)
+
+rotated = rotation_right(data[0][1])
+
+pretty_print_image(rotated)
+
+file.close()
